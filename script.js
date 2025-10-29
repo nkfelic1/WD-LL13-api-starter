@@ -27,4 +27,22 @@ Start your code below 👇
 // You'll fetch data from your selected API and display it on the page
 
 // Example placeholder:
-console.log("Team activity starter code loaded.");
+fetch('https://catfact.ninja/fact')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data.fact);
+    const factElement = document.getElementById('cat-fact');
+    factElement.textContent = data.fact;
+  })
+
+  fetch('https://meowfacts.herokuapp.com/')
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data.data);
+      const factElement = document.getElementById('cat-fact1');
+      factElement.textContent = data.data;
+    });
