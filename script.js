@@ -46,3 +46,33 @@ fetch('https://catfact.ninja/fact')
       const factElement = document.getElementById('cat-fact1');
       factElement.textContent = data.data;
     });
+
+    fetch('https://randomfox.ca/floof/')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.image);
+      const factElement = document.getElementById('fox-image');
+      factElement.src = data.image;
+      });
+
+      fetch('https://yesno.wtf/api')
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data.answer);
+          const factElement = document.getElementById('yesno-answer');
+          factElement.textContent = data.answer;
+        });
+
+      fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data.text);
+          const factElement = document.getElementById('useless-fact');
+          factElement.textContent = data.text;
+        });
